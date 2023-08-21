@@ -1,0 +1,58 @@
+{% extends '/base.html'%}
+
+{% block title %} {{probe[0].sample_id}} {% endblock %}
+
+{% block body %}
+
+    <p class="text-center"><h1>Ваш тест<br></h1></p>
+    <ul class="list-group">
+        <li class="list-group-item active"><h2>{{probe[0].Name}} {{probe[0].Fam}}</h2></li>
+            <li class="list-group-item"><h2>Проба от: {{probe[0].order_date}}</h2></li>
+            <li class="list-group-item">
+                <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th><p>Тест.</p></th>
+                      <th><p>Название теста.</p></th>
+                      <th><p>Результат.</p></th>
+                      <th><p>Письменный результат.</p></th>
+                      <th><p>ЕД. Измерения.</p></th>
+                      <th><p>Референсные значения.</p></th>
+                      <th><p>Норма.</p></th>
+                      <th><p>Дата теста.</p></th>
+                      <th><p>Анализатор.</p></th>
+                      <th><p>Диагноз.</p></th>
+                      <th><p>Учереждение.</p></th>
+                      <th><p>Биоматериал.</p></th>
+                      <th><p>Отдел.</p></th>
+                      <th><p>Доктор.</p></th>
+                      <th><p>Страховая компания.</p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for el in probe%}
+                    <tr>
+                      <td>{{el.tst_abbr}}</td>
+                      <td>{{el.tst_name}}</td>
+                      <td>{{el.res}}</td>
+                      <td>{{el.rem}}</td>
+                      <td>{{el.unit_name}}</td>
+                      <td>{{el.ref}}</td>
+                      <td>{{el.norma}}</td>
+                      <td>{{el.tst_date}}</td>
+                      <td>{{el.analyzer}}</td>
+                      <td>{{el.diagn}}</td>
+                      <td>{{el.dep_name}}</td>
+                      <td>{{el.biomatherial}}</td>
+                      <td>{{el.otdel}}</td>
+                      <td>{{el.doctor}}</td>
+                      <td>{{el.strahcompany}}</td>
+                    </tr>
+                    {%endfor%}
+                <tbody>
+            </table>
+        </li>
+    </ul>
+<a href="/record" class="btn btn-warning">Записаться на прием ко врачу</a>
+
+{% endblock %}

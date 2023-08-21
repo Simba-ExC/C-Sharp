@@ -1,0 +1,22 @@
+{% extends '/base.html'%}
+
+{% block title %} Ваши тесты {% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <p class="text-center"><h1>Здравствуйте {{profile[0].Name}} {{profile[0].Fam}}<br>Ваши исследования<br></h1></p>
+    {% for el in samples%}
+    <div class="alert alert-info">
+        <h2>Учереждение {{el.dep_name}}</h2>
+        <p>номер пробы {{el.sample_id}}</p>
+        <p>Имя доктора: {{el.doctors}}</p>
+        <p>Диагноз: {{el.diagn}}<p>
+        <p>От: {{el.order_date.date()}}</p>
+        <a href="/sample/{{el.sample_id}}" class="btn btn-warning">Детальнее</a>
+    </div>
+    {%endfor%}
+
+</div>
+
+{% endblock %}

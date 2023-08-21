@@ -1,0 +1,39 @@
+{% extends '/base.html'%}
+
+{% block title %} Обратная связь {% endblock %}
+
+{% block body %}
+
+<div> </div>
+<div class="container">
+<div class="row">
+<div class="col-md-4"> </div>
+<div class="col-md-4">
+
+    <br>
+    <br>
+   <h4>Форма обратной связи</h4>    <br>
+   <form action="/contact" method="post">
+<div class="form-group">
+   <label for="name"><h5>Ваше имя:</h5></label>
+   <input type="name" name="name" class="form-control" id="name"><br>
+</div>
+<div class="form-group">
+   <label for="email1"><h5>E-mail:</h5></label>
+   <input type="email" name="email" class="form-control" id="email1"><br>
+</div>
+<div class="form-group">
+   <label for="phone"><h5>Номер телефона:</h5></label>
+   <input type="phone" name="phone" class="form-control" id="phone"<br>
+</div>
+<div class="form-group">
+   <label for="message"><h5> <br>Сообщение:</h5></label>
+   <textarea class="form-control" name="message" rows="3"></textarea><br>
+</div>
+   <button type="submit" class="btn btn-primary"><h5>Отправить сообщение</h5></button>
+</form>
+</div>
+<div class="col-md-4"> </div> </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends '/base.html'%}
+
+{% block title %} Ваши записи ко врачу  {% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <p class="text-center"><h1> Здравствуйте {{profile[0].Name}} {{profile[0].Fam}}<br> Ваши записи ко врачу <br></h1></p>
+    {% for el in records%}
+    <div class="alert alert-info">
+        <h2>Имя доктора: {{el.name_doc}}</h2>
+        <p>Дата приема: {{el.Date_priem}}</p>
+        <p>Причина обращения: {{el.message}}</p>
+        <p>Обращение создано: {{el.Date_feedback.date()}}</p>
+    </div>
+    {%endfor%}
+<a href="/record" class="btn btn-warning">Записаться на прием</a>
+</div>
+
+{% endblock %}

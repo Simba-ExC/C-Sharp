@@ -1,0 +1,43 @@
+{% extends '/base.html'%}
+
+{% block title %} записаться ко врачу {% endblock %}
+
+{% block body %}
+
+	<link rel="stylesheet" href="{{ url_for ('static', filename='css/record.css') }}">
+
+
+<div class="wrapper">
+			<div class="inner">
+				<form action="/record", method="post">
+					<h3>Запись на прием</h3>
+					<label class="form-group">
+						<input type="text" id="name_patient" name="name_patient" class="form-control"  required>
+						<span>ФИО пациента</span>
+						<span class="border"></span>
+					</label>
+					<label class="form-group">
+						<input type="text" id="name_doc" name="name_doc" class="form-control"  required>
+						<span for="">К какому доктору</span>
+						<span class="border"></span>
+					</label>
+					<label class="form-group" >
+						<textarea name="message" id="message" class="form-control" required></textarea>
+						<span for="">Жалобы</span>
+						<span class="border"></span>
+					</label>
+					<label class="form-group">
+                   <input type="date" class="form-control" id="Date_priem" name="Date_priem">
+						<span for="">Дата записи</span>
+						<span class="border"></span>
+					</label>
+					<label class="form-group">
+					<button type="submit" class="btn btn-primary btn-lg" >Записаться
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+						</label>
+				</form>
+			</div>
+		</div>
+
+{% endblock %}

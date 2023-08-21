@@ -1,0 +1,49 @@
+{% extends '/base.html'%}
+
+{% block title %} {{profile.POL}} {% endblock %}
+
+{% block body %}
+
+<div class="container  gx-5">
+    <p class="text-center"><h1>Ваш профиль<br></h1></p>
+    <ul class="list-group">
+      <li class="list-group-item active"><h2>{{profile[0].Name}} {{profile[0].Fam}}</h2></li>
+         <table class="table table-striped">
+          <tbody class="h4">
+            <tr>
+              <th scope="row">1</th>
+              <td>Дата рождения:</td>
+              <td>{{profile[0].birthdayDate.date()}}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Ваш пол:</td>
+              <td>{{profile[0].POL}}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Ваша почта:</td>
+              <td>{{profile[0].emailAddress}}</td>
+            </tr>
+              <tr>
+              <th scope="row">4</th>
+              <td>Номер телефона:</td>
+              <td>{{profile[0].phoneNumber}}</td>
+            </tr>
+              <tr>
+              <th scope="row">5</th>
+              <td>Ваш Полис:</td>
+              <td>{{profile[0].POLIS }}</td>
+            </tr>
+              <tr>
+              <th scope="row">6</th>
+              <td>Ваша дата регистрации:</td>
+              <td>{{profile[0].Date_reg.date()}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </ul>
+    <a href=""></a>
+</div>
+
+{% endblock %}
