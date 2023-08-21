@@ -1,0 +1,40 @@
+<body>
+<link rel="stylesheet" type="text/css"href="style.css">
+<h1 align=center> TASM </h1><br>
+<time>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Для TASM создаём объектный файл с именем atest.obj, набрав в командной строке следующую команду:<br>
+<br>
+<i>tasm atest.asm</i><br>
+<br>
+<prim>ПРИМЕЧАНИЕ</prim><br>
+Если на вашем компьютере программа tasm находится не в корневом каталоге диска С:\ и в файл autoexec.bat не внесены соответствующие изменения, то следует указывать полный путь к этой программе. Это касается и файла atest.asm. В этом случае команда может выглядеть, например, так:<br>
+<br>
+C:\TASM\BIN\tasm C:\MYPROG\atest.asm
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Далее следует скомпоновать полученный файл atest.obj в исполняемый файл atest.com. Для этого набираем команду:<br>
+<br>
+tlink /t /x atest.obj<br>
+<br>
+или полный путь:<br>
+<br>
+C:\TASM\BIN\tlink /t /x atest.obj<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Обратите внимание, что для файла atest.obj не нужно указывать полный путь, так как он записывается в папку C:\TASM\BIN\. Туда же по умолчанию записывается и готовая к выполнению программа atest.com. Теперь можно ее запустить, и мы увидим то, что должны увидеть – букву «A» в левом верхнем углу экрана.<br>
+<br>
+<prim>ПРИМЕЧАНИЕ</prim><br>
+Если вы работаете в режиме эмуляции DOS из под WINDOWS, то файлы atest.obj и atest.com по умолчанию сохранятся на рабочий стол или в папку пользователя. Это зависит от версии и/или настроек WINDOWS.<br>
+<br>
+<button onclick="javascript:window.location='MASM TASM and WASM.html'"; type="button" name "button1" style="wight:80px;height:50px">
+	<img src="фото для книги\back.jpg" alt="назад" width="40" height="40">
+</button>
+
+<button onclick="javascript:window.location='TASM.html'"; type="button" name "button1" style="wight:80px;height:50px">
+	<img src="фото для книги\up.jpg" alt="назад" width="40" height="40">
+</button>
+
+<button onclick="javascript:window.location='MASM.html'"; type="button" name "button2" style="wight:80px;height:50px; float: right;">
+	<img src="фото для книги\next.jpg" alt="вперед" width="40" height="40"> 
+</button><br><br> 
+</time>
+</body>

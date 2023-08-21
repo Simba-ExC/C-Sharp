@@ -1,0 +1,170 @@
+﻿<html>
+<head>
+<title>Тест</title>
+<link href="C:\Users\Vanya\Desktop\Web-processing функции\css_files\style.css" rel="stylesheet">
+</head>
+<a name="#top">
+<script type="text/javascript">
+var questions=[
+{
+    text: " Язык ассемблера – ... ",
+    answers: ["язык программирования высокого уровня, то есть максимально приближенный к «железу» – аппаратному обеспечению компьютера;",
+          "	структурированный, объектно-ориентированный язык программирования",
+          "язык программирования низкого уровня, максимально приближенный аппаратному обеспечению компьютера"],
+    correctAnswer: 2 // нумерация ответов с нуля!
+},
+{
+    text: "Выберите верное утверждение:",
+    answers: ["Регистр процессора – блок ячеек памяти, образующий сверхбыструю оперативную память внутри процессора, недоступную для программиста.",
+          "Регистр процессора – это кремниевая плата или «подложка» с логическими цепями, состоящими из транзисторов, скрытая в пластмассовом корпусе.",
+          "	Регистр процессора – сверхбыстрая оперативная память внутри процессора, предназначенная прежде всего для хранения промежуточных результатов вычисления или содержащая данные, необходимые для работы процессора."],
+    correctAnswer: 0
+},
+{
+    text: " Ассемблер. При выполнении операции деления DIV делимое должно быть расположено в регистре",
+    answers: ["bx",
+          "cx",
+          "ax"],
+    correctAnswer: 2
+},
+{
+    text: "Для работы со стеком используют следующие команды:",
+    answers: ["push – записать в стек число, pop – читать число из стека",
+          "push – читать число из стека, pop – записать в стек число",
+          "push – записать в стек число, pap – читать число из стека"],
+    correctAnswer: 0 // нумерация ответов с нуля!
+},
+{
+    text: "Языком Ассемблера является:",
+    answers: ["Лисп (List Information Symbol Processing)",
+          "Фортран (FORmulaeTRANslation)",
+          "ни один из языков не является языком Ассемблера"],
+    correctAnswer: 2 // нумерация ответов с нуля!
+},
+{
+    text: "Что не является недостатком языков ассемблера",
+    answers: ["большие объемы кода",
+          " непереносимость на другие платформы",
+          "небольшой набор символов по сравнению с языками высокого уровня"],
+    correctAnswer: 0 // нумерация ответов с нуля!
+},
+{
+    text: "В каких расширениях можно загружать и отображась изображения?",
+    answers: [".gif, .jpg, .tga, .png",
+          ".jpg, .tga, .png",
+          "В любых"],
+    correctAnswer: 0 // нумерация ответов с нуля!
+},
+{
+    text: "Вычислительная система – это",
+    answers: ["совокупность не только аппаратных, но и программных средств",
+          "совокупность только аппаратных",
+          "совокупность только программных средств"],
+    correctAnswer: 2 // нумерация ответов с нуля!
+},
+{
+    text: "Для чего используется переменная KeyCode?",
+    answers: ["для обнаружения специальных клавиш",
+          "принимает истинное или ложное значение в зависимости от нажатой клавиши",
+          "для хранения значения последней клавиши на клавиатуре, которая была использована"],
+    correctAnswer: 0 // нумерация ответов с нуля!
+},
+{
+    text: "Основная единица ассемблерной программы — это",
+    answers: ["символ",
+          " строка",
+          "блок"],
+    correctAnswer: 1 // нумерация ответов с нуля!
+}
+];
+
+var yourAns = new Array;
+var score = 0;
+
+function Engine(question, answer) {yourAns[question]=answer;}
+
+function Score(){  
+var count = 0;
+var f = document.forms["quiz"];
+   for(var i = 0; i < f.elements.length; ++i) {
+		if(f.elements[i].checked){
+			count++;
+		}
+	}
+	if(count == 10)
+	{
+	   var answerText = "Результаты:\n";
+	   for(var i = 0; i < yourAns.length; ++i){
+		var num = i+1;
+		answerText=answerText+"\n    Вопрос №"+ num +"";
+		if(yourAns[i]!=questions[i].correctAnswer){
+			answerText=answerText+"\n    Правильный ответ: " +
+			questions[i].answers[questions[i].correctAnswer] + "\n";
+		  }
+			else{
+			answerText=answerText+": Верно! \n";
+			++score;
+			}
+		   }
+
+	   answerText=answerText+"\nВсего правильных ответов: "+score+"\n";
+
+	   alert(answerText);
+	   yourAns = [];
+	   score = 0;
+	   clearForm("quiz");
+   }else{
+   answerText = "Вы ответили не на все вопросы!";
+   alert(answerText);
+   }
+}
+function clearForm(name) {
+   var f = document.forms[name];
+   for(var i = 0; i < f.elements.length; ++i) {
+    if(f.elements[i].checked)
+        f.elements[i].checked = false;
+}
+}
+</script>
+
+<style>
+span.quest {font-weight: bold;}
+</style>
+<h1>Тест по Языку программирования Asembler</h1>
+<hr>
+<h2><script>document.write(subtitle)</script></h2>
+
+<form name="quiz">
+<ol>
+<script>
+for(var q=0; q<questions.length; ++q) {
+   var question = questions[q];
+   var idx = 1 + q;
+
+   document.writeln('<br><li><span class="quest">' + question.text + '</span><br/>');
+   for(var i in question.answers) {
+    document.writeln('<input type=radio name="q' + idx + '" value="' + i +
+    '" onClick="Engine(' + q + ', this.value)">' + question.answers[i] + '<br/>');
+}
+}
+</script>
+</ol>
+<br>
+<input style="margin-left: 40px; height: 30px;" type="button" onClick="Score()" value="Проверить результаты" />
+</form>
+<hr>
+<br>
+<button onclick="javascript:window.location='16.html'"; type="button" name "button1" style="wight:80px;height:50px">
+	<img src="фото для книги\back.jpg" alt="назад" width="40" height="40">
+</button>
+
+<button onclick="javascript:window.location='test.html'"; type="button" name "button1" style="wight:80px;height:50px">
+	<img src="фото для книги\up.jpg" alt="вверх" width="40" height="40">
+</button>
+
+<button onclick="javascript:window.location='books.html'"; type="button" name "button2" style="wight:80px;height:50px; float: right;">
+	<img src="фото для книги\next.jpg" alt="вперед" width="40" height="40"> 
+</button><br><br> 
+<br>
+<br>
+</html>
